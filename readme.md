@@ -1,58 +1,33 @@
-# RPG JS Game
+This repository includes plugins written by me and examples how to use them
 
-This is a project template for [RPGJS](https://rpgjs.dev) apps. It lives at https://github.com/rpgjs/starter.
+## Plugins
 
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
+### Character select
 
-```bash
-npx degit rpgjs/starter rpg-app
-cd rpg-app
+Requirements ⚠️
+- title-screen plugin
+- MMORPG type of game
+
+--- 
+It allows player to select actor.\
+This plugin extends original `@Class` decorator with possibility to set `graphics` of a class
+
+`pernament` are graphics displayed for player everytime.
+
+`baseEquipment` is separated from pernament and animations graphics to have possibility to change them eg. when you want to equip some item and change graphic for it.
+
+`animations` it's array of animations like slash of a sword or casting some skill. ⚠️ This property may be removed in future.
+
+
+Example:
 ```
-## Get started
-
-Install the dependencies...
-
-```bash
-cd rpg-app
-npm install
-npm run dev
-```
-
-Navigate to [localhost:3000](http://localhost:3000). You should see your game running. Edit a file in `src`, save it, and reload the page to see your changes.
-
-> Launch in RPG mode with `RPG_TYPE=rpg npm run dev`
-
-## Production
-
-### Build with NodeJS
-
-```bash
-NODE_ENV=production npm run build
-```
-
-### Build with Docker
-
-```bash
-sudo docker build -t rpg .
-sudo docker run -p 3000:3000 -d rpg
+graphics: {
+    pernament: ['body-light', 'head-light', 'long-light-ears', 'male-bangslong-platinum'],
+    baseEquipment: {
+        torso: 'vest-black',
+        legs: 'pants-black',
+    },
+    animations: ['slash', 'fire-ball-cast'],
+}
 ```
 
-## Resources
-
-[Documentation](https://docs.rpgjs.dev)
-[Community Help](https://community.rpgjs.dev)
-
-## Credits for Sample package assets
-
-### Sounds
-
-[Davidvitas](https://www.davidvitas.com/portfolio/2016/5/12/rpg-music-pack)
-Attribution 4.0 International (CC BY 4.0)- https://creativecommons.org/licenses/by/4.0/deed.en
-
-### Graphics
-
-[Pipoya](https://pipoya.itch.io)
-
-### Icons
-
-https://game-icons.net

@@ -1,0 +1,28 @@
+name = 'My Game'
+
+modules = [
+   '@rpgjs/title-screen',
+   './spritesheets',
+   './character-select',
+    './main',
+    '@rpgjs/default-gui',
+]
+
+spritesheetDirectories = [
+    'lpc/heads',
+    'lpc/bodies',
+]
+
+[start]
+    map = 'simplemap'
+    graphic = 'hero'
+    hitbox = [16, 16]
+
+[titleScreen]
+    mongodb = "$ENV:VITE_MONGODB_URL"
+
+[characterSelect]
+  actors = [
+    'human',
+  ]
+

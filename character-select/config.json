@@ -1,0 +1,16 @@
+{
+  "namespace": "characterSelect",
+  "server": {
+    "type": "object",
+    "properties": {
+      "actors": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "client": {},
+  "*": {}
+}

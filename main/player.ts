@@ -1,4 +1,5 @@
 import { RpgPlayer, type RpgPlayerHooks, Control, Components } from '@rpgjs/server'
+import ClassGraphics from 'rpgjs-character-select/server/src/graphics/ClassGraphics'
 
 const player: RpgPlayerHooks = {
     onConnected(player: RpgPlayer) {
@@ -11,6 +12,18 @@ const player: RpgPlayerHooks = {
         }
     },
     async onJoinMap(player: RpgPlayer) {
+    },
+    onCharacterSelected(player: RpgPlayer, actorId: string) {
+        player.setActor(actorId);
+        console.log('actor set', actorId);
+    },
+    onAuthSuccess(player: RpgPlayer) {
+        const graphics = player._class.graphics as ClassGraphics;
+
+        player.setGraphic([
+            ...graphics.pernament,
+            ...Object.values(graphics.baseEquipment),
+        ]);
     }
 }
 

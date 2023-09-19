@@ -1,5 +1,6 @@
 import { RpgServer, RpgModule, RpgPlayer } from '@rpgjs/server'
 import StartingActors from './src/StartingActors';
+import ClassLoader from './src/ClassLoader';
 
 /** @ts-ignore */
 @RpgModule<RpgServer>({
@@ -13,6 +14,8 @@ import StartingActors from './src/StartingActors';
     },
     player: {
         canAuth(player: RpgPlayer, userData: any, authGui: any): boolean {
+            ClassLoader.load(player, userData);
+
             if (userData) {
                 return true;
             }

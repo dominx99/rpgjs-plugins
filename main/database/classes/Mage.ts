@@ -2,20 +2,20 @@ import { Class } from "rpgjs-character-select";
 
 /** @ts-ignore */
 @Class({
-    name: 'Warrior',
+    name: 'Mage',
     description: '',
     equippable: [],
     skillsToLearn: [],
     statesEfficiency: [],
     elementsEfficiency: [],
     graphics: {
-        pernament: ['body-light', 'head-light', 'male-spiked2-sandy'],
+        pernament: ['body-light', 'head-vampire-light'],
         baseEquipment: {
-            torso: 'shortsleeve-charcoal',
+            torso: 'frock-charcoal',
             legs: 'pants-black',
         },
         animations: [],
     }
 })
-export default class Warrior {
+export default class Mage {
 }

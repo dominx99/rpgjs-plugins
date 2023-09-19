@@ -2,20 +2,20 @@ import { Class } from "rpgjs-character-select";
 
 /** @ts-ignore */
 @Class({
-    name: 'Warrior',
+    name: 'Archer',
     description: '',
     equippable: [],
     skillsToLearn: [],
     statesEfficiency: [],
     elementsEfficiency: [],
     graphics: {
-        pernament: ['body-light', 'head-light', 'male-spiked2-sandy'],
+        pernament: ['body-light', 'head-light', 'long-light-ears', 'male-bangslong-platinum'],
         baseEquipment: {
-            torso: 'shortsleeve-charcoal',
+            torso: 'vest-black',
             legs: 'pants-black',
         },
         animations: [],
     }
 })
-export default class Warrior {
+export default class Archer {
 }

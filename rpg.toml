@@ -11,12 +11,16 @@ modules = [
 spritesheetDirectories = [
     'lpc/heads',
     'lpc/bodies',
+    'lpc/accessories',
+    'lpc/torso',
+    'lpc/legs',
+    'lpc/hair',
+    'lpc/ears',
 ]
 
 [start]
     map = 'simplemap'
-    graphic = 'hero'
-    hitbox = [16, 16]
+    hitbox = [32, 32]
 
 [titleScreen]
     mongodb = "$ENV:VITE_MONGODB_URL"
@@ -24,5 +28,7 @@ spritesheetDirectories = [
 [characterSelect]
   actors = [
     'human',
+    'elf',
+    'vampire',
   ]
 

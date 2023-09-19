@@ -5,3 +5,5 @@ export default {
   client,
   server
 }
+
+export { Class } from './server/src/decorators/Class';

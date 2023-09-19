@@ -3,7 +3,7 @@
         <div class="character-select__preview-wrapper">
             <CharacterPreview :graphics="graphics()" />
         </div>
-        <div class="character-select__description-wrapper">
+        <div class="character-select__description-wrapper" v-if="currentActor">
             <h2 class="character-select__title">
                 <span class="character-select__actor-name">{{ currentActor.name }}&nbsp;</span>
                 <span class="character-select__class-name">{{ currentActor.class.name }}</span>
@@ -108,6 +108,9 @@ $window-button-success-shadow: #0d4c30 !default;
 $window-button-color: rgba(128, 130, 162, 0.7) !default;
 $window-button-shadow: rgb(128, 130, 162) !default;
 
+$character-select-arrow-left-image: url('../assets/gui/arrow-left.png') !default;
+$character-select-arrow-right-image: url('../assets/gui/arrow-right.png') !default;
+
 .character-select {
     background: $character-select-screen-background;
     background-size: cover;
@@ -136,28 +139,23 @@ $window-button-shadow: rgb(128, 130, 162) !default;
         top: 62%;
         left: 25%;
         filter: brightness(1.5);
+        filter: brightness(0.9);
+        transition: filter 0.15s ease-in-out;
 
         &:hover {
             cursor: pointer;
+            filter: brightness(1);
         }
     }
 
     &__arrow-right {
-        background-image: url('@/modules/config/assets/gui/shared/right_arrow_n.png');
+        background-image: $character-select-arrow-right-image;
         left: unset;
         right: 25%;
-
-        &:hover {
-            background-image: url('@/modules/config/assets/gui/shared/right_arrow_h.png');
-        }
     }
 
     &__arrow-left {
-        background-image: url('@/modules/config/assets/gui/shared/left_arrow_n.png');
-
-        &:hover {
-            background-image: url('@/modules/config/assets/gui/shared/left_arrow_h.png');
-        }
+        background-image: $character-select-arrow-left-image;
     }
 
     &__description-wrapper {

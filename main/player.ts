@@ -12,10 +12,13 @@ const player: RpgPlayerHooks = {
         }
     },
     async onJoinMap(player: RpgPlayer) {
+        player.exp += 150;
+    },
+    onLevelUp(player: RpgPlayer) {
+        player.save();
     },
     onCharacterSelected(player: RpgPlayer, actorId: string) {
         player.setActor(actorId);
-        console.log('actor set', actorId);
     },
     onAuthSuccess(player: RpgPlayer) {
         const graphics = player._class.graphics as ClassGraphics;

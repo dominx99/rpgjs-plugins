@@ -2,7 +2,7 @@
 
 ### Character select
 
-[Documentation](https://github.com/dominx99/rpgjs-plugins/blob/character-select/readme.md)
+[Documentation](https://github.com/dominx99/rpgjs-plugins/blob/master/character-select/readme.md)
 
 ## Credits
 
@@ -12,4 +12,4 @@ All art in this repository is licensed under [CC BY-SA 3.0](https://creativecomm
 
 ## License
 
-All the rest aprat from art is licensed under [MIT](https://github.com/dominx99/rpgjs-plugins/blob/master/LICENSE)
+All the rest apart from art is licensed under [MIT](https://github.com/dominx99/rpgjs-plugins/blob/master/LICENSE)

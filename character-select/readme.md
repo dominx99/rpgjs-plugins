@@ -110,6 +110,9 @@ const player: RpgPlayerHooks = {
 }
 ```
 
+### ⚠️  Important ⚠️
+Keep in mind that that `onCharacterSelected` hook is executed before `onAuthSuccess`
+
 ## Customization
 
 You can override variables and styles in [theme.scss](https://docs.rpgjs.dev/gui/theme.html#customize-guis)

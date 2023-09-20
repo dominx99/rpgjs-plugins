@@ -1,17 +1,36 @@
 # RPG JS Character select plugin
     
 ## Description
+It's a plugin of [RPG JS](https://rpgjs.dev/) engine that gives possibility to select character just after logging in with a GUI.
 
- Requirements ⚠️
-- title-screen plugin
+### Requirements ⚠️
+- [title-screen](https://docs.rpgjs.dev/plugins/title-screen.html#title-screen) plugin
 - MMORPG type of game
 
 ## Features
-This plugin allows player to select actor.
+✅ GUI for selecting actor after first login to game\
+✅ Possibility to assign graphics to the clsas
 
 [![Watch the video](https://drive.usercontent.google.com/download?id=1qU6J9uEPyCf4MAtm4DxvJVZHyN8QAgZ8&export=download)](https://drive.google.com/file/d/1QyRBqBB_BEo6xR-bJim-6rgsT-VaTPQg/view?usp=sharing)
 
-You have to define class using extended decorator from this package.
+## Installation
+    
+You can easily install the RPG JS Plugin using npm. Open your terminal and run the following command:
+
+```bash
+npx rpgjs add rpgjs-myplugin
+```
+
+Remember to add plugin to the `rpg.toml`
+```toml
+modules = [
+   'rpg-character-select',
+]
+```
+
+## Usage
+
+#### 1. You have to define class using extended decorator from this package.
 
 ```ts
 import { Class } from "rpgjs-character-select";
@@ -27,7 +46,7 @@ import { Class } from "rpgjs-character-select";
         animations: ['slash'],
     }
 })
-
+export default class Archer {}
 ```
 `pernament` are graphics displayed for player everytime.
 
@@ -46,19 +65,48 @@ graphics: {
     animations: ['slash', 'fire-ball-cast'],
 }
 ```
-    
-## Installation
-    
-You can easily install the RPG JS Plugin using npm. Open your terminal and run the following command:
 
-```bash
-npx rpgjs add rpgjs-myplugin
+#### 2. Next assign this class to the actor
+
+```ts
+import { Actor } from '@rpgjs/database'
+
+const { MAXHP } = Presets
+
+@Actor({
+    /* other parameters */
+    class: Archer
+})
+export default class Elf {}
 ```
 
-## Usage
+#### 3. Add actor ids to plugin configuration in the `rpg.toml`
 
-...
+```toml
+[characterSelect]
+  actors = [
+    'human',
+    'elf',
+    'vampire',
+  ]
+```
 
-## License
+#### 4. Assign actor id to the player and show graphics in `player.ts`
+```ts
+const player: RpgPlayerHooks = {
+    /* ... */
+    onCharacterSelected(player: RpgPlayer, actorId: string) {
+        player.setActor(actorId);
+    },
+    onAuthSuccess(player: RpgPlayer) {
+        const graphics = player._class.graphics as ClassGraphics;
 
-...
+        player.setGraphic([
+            ...graphics.pernament,
+            ...graphics.animations,
+            ...Object.values(graphics.baseEquipment),
+        ]);
+    }
+}
+```
+

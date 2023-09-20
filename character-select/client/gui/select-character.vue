@@ -4,11 +4,13 @@
             <CharacterPreview :graphics="graphics()" />
         </div>
         <div class="character-select__description-wrapper" v-if="currentActor">
-            <h2 class="character-select__title">
-                <span class="character-select__actor-name">{{ currentActor.name }}&nbsp;</span>
-                <span class="character-select__class-name">{{ currentActor.class.name }}</span>
-            </h2>
-            <p class="character-select__description">{{ currentActor.description }}</p>
+            <div class="character-select__description-content">
+                <h2 class="character-select__title">
+                    <span class="character-select__actor-name">{{ currentActor.name }}&nbsp;</span>
+                    <span class="character-select__class-name">{{ currentActor.class.name }}</span>
+                </h2>
+                <p class="character-select__description">{{ currentActor.description }}</p>
+            </div>
         </div>
         <button @click="handlePreviousCharacter()" class="character-select__arrow-left"></button>
         <button @click="handleNextCharacter()" class="character-select__arrow-right"></button>
@@ -101,7 +103,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $character-select-screen-background: url('../assets/backgrounds/character-select.png') !default;
 $window-button-success-color: #1c8634 !default;
 $window-button-success-shadow: #0d4c30 !default;
@@ -158,10 +160,7 @@ $character-select-arrow-right-image: url('../assets/gui/arrow-right.png') !defau
         background-image: $character-select-arrow-left-image;
     }
 
-    &__description-wrapper {
-        position: absolute;
-        top: 20%;
-        right: 15%;
+    &__description-content {
         width: 300px;
         height: 300px;
         background: rgba(0, 0, 0, 0.5);
@@ -172,7 +171,7 @@ $character-select-arrow-right-image: url('../assets/gui/arrow-right.png') !defau
 
         &::-webkit-scrollbar {
             width: 5px;
-            background-color: #fff;
+            background: #fff;
         }
 
         &::-webkit-scrollbar-thumb {
@@ -182,6 +181,12 @@ $character-select-arrow-right-image: url('../assets/gui/arrow-right.png') !defau
         &::-webkit-scrollbar-track {
             background-color: #fff;
         }
+    }
+
+    &__description-wrapper {
+        position: absolute;
+        top: 20%;
+        right: 15%;
     }
 
     &__submit-button {

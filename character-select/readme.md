@@ -18,7 +18,7 @@ It's a plugin of [RPG JS](https://rpgjs.dev/) engine that gives possibility to s
 You can easily install the RPG JS Plugin using npm. Open your terminal and run the following command:
 
 ```bash
-npx rpgjs add rpgjs-myplugin
+npx rpgjs add rpgjs-character-select
 ```
 
 Remember to add plugin to the `rpg.toml`
@@ -74,7 +74,7 @@ import { Actor } from '@rpgjs/database'
 const { MAXHP } = Presets
 
 @Actor({
-    /* other parameters */
+    /* ... other parameters */
     class: Archer
 })
 export default class Elf {}
@@ -110,3 +110,106 @@ const player: RpgPlayerHooks = {
 }
 ```
 
+## Customization
+
+You can override variables and styles in [theme.scss](https://docs.rpgjs.dev/gui/theme.html#customize-guis)
+
+```scss
+/* variables */
+
+$character-select-screen-background: url('../assets/backgrounds/character-select.png');
+$character-select-arrow-left-image: url('../assets/gui/arrow-left.png') !default;
+$character-select-arrow-right-image: url('../assets/gui/arrow-right.png') !default;
+$window-button-success-color: #1c8634;
+$window-button-success-shadow: #0d4c30;
+$window-button-color: rgba(128, 130, 162, 0.7);
+$window-button-shadow: rgb(128, 130, 162);
+
+/* styles */
+
+.character-select {
+  &__class-name {
+    color: $primary;
+  }
+
+  &__arrow-left {
+    width: 75px;
+    height: 75px;
+
+    &:hover {
+      background: url('@/modules/config/assets/gui/shared/left_arrow_h.png');
+      background-size: 100% 100%;
+      filter: brightness(1);
+    }
+  }
+
+  &__arrow-right {
+    width: 75px;
+    height: 75px;
+
+    &:hover {
+      background: url('@/modules/config/assets/gui/shared/right_arrow_h.png');
+      background-size: 100% 100%;
+    }
+  }
+
+  &__submit-button {
+    width: 200px;
+    height: 75px;
+    font-weight: normal;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+
+  &__description-content {
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: url('@/modules/config/assets/gui/boxes/news_top_ornament.png');
+        background-size: 100% 100%;
+        width: 100%;
+        height: 35px;
+        margin-top: -32px;
+        filter: brightness(1.5);
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background: url('@/modules/config/assets/gui/boxes/news_bottom.png');
+      background-size: 100% 100%;
+      width: 50%;
+      height: 35px;
+      margin-bottom: -32px;
+      filter: brightness(1.5);
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #fff;
+      width: 7px;
+    }
+
+    &::-webkit-scrollbar {
+      background: #fff;
+      width: 7px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, .5);
+
+      &:hover {
+        background: rgba(0, 0, 0, .7);
+      }
+    }
+  }
+}
+```
+
+![Custom view](https://drive.usercontent.google.com/download?id=16dqE2RLCZSShRo01xABm12WqCMUwo2b3&export=download)

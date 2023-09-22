@@ -7,11 +7,6 @@ import ClassLoader from './src/ClassLoader';
     hooks: {
         player: ['onCharacterSelected'],
     },
-    engine: {
-        onStart() {
-            console.log('started');
-        }
-    },
     player: {
         canAuth(player: RpgPlayer, userData: any, authGui: any): boolean {
             ClassLoader.load(player, userData);

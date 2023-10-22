@@ -3,7 +3,8 @@
     "scripts": {
         "build": "rpgjs build",
         "dev": "rpgjs dev",
-        "start": "node dist/server/main.mjs"
+        "start": "node dist/server/main.mjs",
+        "test": "RPGJS_TEST=1 npx vitest --config node_modules/@rpgjs/compiler/src/test/vitest.config.ts"
     },
     "engines": {
         "node": ">=14"
@@ -22,6 +23,10 @@
     },
     "devDependencies": {
         "@rpgjs/compiler": "4.0.4",
-        "typescript": "5.2.2"
+        "@rpgjs/testing": "^4.1.0",
+        "canvas": "^2.11.2",
+        "jsdom": "^22.1.0",
+        "typescript": "5.2.2",
+        "vitest": "^0.34.6"
     }
 }

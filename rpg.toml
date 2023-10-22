@@ -1,6 +1,7 @@
 name = 'My Game'
 
 modules = [
+   './inventory',
    '@rpgjs/title-screen',
    './spritesheets',
    './character-select',

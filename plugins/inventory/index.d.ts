@@ -1,4 +1,4 @@
-import { Inventory } from "./server/src/domain/Inventory";
+import { Inventory, Slot } from "./server/src/domain/Inventory";
 import { Item } from './server/src/decorators/Item'
 import { Armor } from './server/src/decorators/Armor'
 import { Weapon } from './server/src/decorators/Weapon'
@@ -10,6 +10,8 @@ import { UnequipItem } from './server/src/service/UnequipItem'
 import { UseItem } from './server/src/service/UseItem'
 import { EquipItem } from './server/src/service/EquipItem'
 import { ConsumeItem } from './server/src/service/ConsumeItem'
+import { NativeInventoryItem } from "./server/src/interfaces/NativeInventoryItem";
+import { ItemEntity } from "./server/src/interfaces/ItemEntity";
 
 declare module '@rpgjs/server' {
     export interface RpgPlayer {
@@ -22,6 +24,7 @@ export {
     Backpack,
     BackpackItem,
     Equipment,
+    Slot,
     ConsumeItem,
     UseItem,
     EquipItem,
@@ -29,5 +32,7 @@ export {
     Item,
     Weapon,
     Armor,
-    ItemType
+    ItemType,
+    ItemEntity,
+    NativeInventoryItem
 }

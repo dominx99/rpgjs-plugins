@@ -1,6 +1,6 @@
 import { RpgPlayer } from "@rpgjs/server";
 import { Slot } from "rpgjs-inventory/server/src/domain/Inventory";
-import { ItemType, EquipItem, UnequipItem, UseItem, ConsumeItem } from 'rpgjs-inventory'
+import { ItemType, UnequipItem, UseItem } from 'rpgjs-inventory'
 
 export interface MoveItemContext {
     from: Slot,

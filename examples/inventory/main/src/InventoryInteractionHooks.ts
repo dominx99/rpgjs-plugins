@@ -46,6 +46,5 @@ export class InventoryInteractionHooks {
         }
 
         player.inventory.moveItem(from, to, nb);
-        player.inventory.dump();
     }
 }

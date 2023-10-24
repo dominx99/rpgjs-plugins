@@ -249,8 +249,6 @@ describe('inventory stack items', () => {
             slot: 1,
         });
 
-        currentPlayer.inventory.dump();
-
         expect(currentPlayer.inventory.getBackpack('main').items.length).toBe(5);
         expect(currentPlayer.inventory.getBackpackItem('main', 0)).toBeNull();
         expect(currentPlayer.inventory.getBackpackItem('main', 1)?.itemId).toBe('potion');
@@ -393,7 +391,6 @@ describe('inventory move item to empty slot', () => {
             { backpack: 'main', slot: 3 },
             5
         );
-        currentPlayer.inventory.dump();
         currentPlayer.inventory.moveItemToEmptySlot(
             { backpack: 'main', slot: 0 },
             { backpack: 'main', slot: 5 },

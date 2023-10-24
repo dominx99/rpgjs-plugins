@@ -19,11 +19,11 @@ const player: RpgPlayerHooks = {
             player.gui('inventory').open();
         }, 1000)
 
-        player.addItem(Potion, 200);
+        player.addItem(Potion, 500);
         player.inventory.addItem({
             itemId: 'hp-potion-1',
             type: 'item',
-            nb: 200
+            nb: 500
         });
 
         let addedItem = player.addItem(Sword(), 1);
@@ -39,8 +39,6 @@ const player: RpgPlayerHooks = {
             type: 'item',
             nb: 1
         });
-
-        player.inventory.dump();
 
         InventoryInteractionHooks.init(player);
     }

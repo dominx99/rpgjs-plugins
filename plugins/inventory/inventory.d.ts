@@ -17,6 +17,11 @@ declare module '@rpgjs/server' {
     export interface RpgPlayer {
         inventory: Inventory
     }
+
+    export interface RpgPlayerHooks {
+        onEquip?: (player: RpgPlayer, itemId: string) => void;
+        onUnequip?: (player: RpgPlayer, itemId: string) => void;
+    }
 }
 
 export {

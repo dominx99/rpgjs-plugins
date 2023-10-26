@@ -1,0 +1,17 @@
+name = 'My Game'
+
+modules = [
+    'rpgjs-inventory',
+    './main',
+    '@rpgjs/default-gui',
+]
+
+spritesheetDirectories = [
+    'spritesheets/characters',
+    'spritesheets/icons',
+]
+
+[start]
+    map = 'simplemap'
+    graphic = 'hero'
+    hitbox = [16, 16]

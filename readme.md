@@ -2,13 +2,18 @@
 
 ### Character select
 
-[Documentation](https://github.com/dominx99/rpgjs-plugins/blob/master/character-select/readme.md)
+[Documentation](https://github.com/dominx99/rpgjs-plugins/blob/master/plugins/character-select/readme.md)
+
+### Inventory
+
+[Documentation](https://github.com/dominx99/rpgjs-plugins/blob/master/plugins/inventory/readme.md)
 
 ## Credits
 
-All art in this repository is licensed under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). Mainly these are [LPC images taken from this generator](https://github.com/sanderfrenken/Universal-LPC-Spritesheet-Character-Generator).
+License of all art in this repository is described in credits files.
 
-[Check all credits](https://github.com/dominx99/rpgjs-plugins/blob/main/CREDITS.csv)
+[LPC Credits](https://github.com/dominx99/rpgjs-plugins/blob/main/LPC-CREDITS.csv)
+[Credits of images and icons](https://github.com/dominx99/rpgjs-plugins/blob/main/OTHER-CREDITS.TXT)
 
 ## License
 

@@ -1,0 +1,24 @@
+{
+    "name": "rpgjs-inventory",
+    "version": "1.0.0-rc.8",
+    "description": "",
+    "main": "index.ts",
+    "types": "index.d.ts",
+    "keywords": [],
+    "author": "dominx99",
+    "license": "MIT",
+    "scripts": {
+        "test": "RPGJS_TEST=1 npx vitest --config node_modules/@rpgjs/compiler/src/test/vitest.config.ts"
+    },
+    "dependencies": {
+        "@rpgjs/client": "4.0.2",
+        "@rpgjs/compiler": "4.0.2",
+        "@rpgjs/server": "4.0.2"
+    },
+    "devDependencies": {
+        "@rpgjs/testing": "4.0.2",
+        "canvas": "^2.11.2",
+        "jsdom": "^22.1.0",
+        "vitest": "^0.34.6"
+    }
+}

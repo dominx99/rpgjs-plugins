@@ -1,0 +1,32 @@
+Title:
+    Fantasy icons pack
+
+Author:
+    shikashipx
+
+URL:
+    https://shikashipx.itch.io/shikashis-fantasy-icons-pack
+
+License(s):
+    * CC-BY 4.0 ( https://creativecommons.org/licenses/by/4.0/legalcode )
+
+File(s):
+    * hp-potion-1.png
+    * sword.png
+
+----------------------------------------
+
+Title:
+    Inventory UI
+
+Author:
+    Wyrmheart
+
+URL:
+    https://opengameart.org/content/inventory-ui
+
+License(s):
+    * CC-BY 3.0 ( http://creativecommons.org/licenses/by/3.0/legalcode )
+
+File(s):
+    * inventory.png

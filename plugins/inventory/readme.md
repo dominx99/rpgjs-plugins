@@ -2,16 +2,12 @@
     
 ## Description
 It's a plugin of [RPG JS](https://rpgjs.dev/) engine that gives possibility to manage inventory.
-    
-...
-    
+       
 ## Features
-✅Move, stack, replace item in inventory
-✅Filling existing stacks while adding to inventory
+✅Move, stack, replace item in inventory\
+✅Filling existing stacks while adding to inventory\
 ⬜Configurable max stack size, currently max stack size is hardcoded to 200
 
-...
-    
 ## Installation
     
 You can easily install the RPG JS Plugin using npm. Open your terminal and run the following command:
@@ -25,7 +21,9 @@ npx rpgjs add rpgjs-inventory
 First you have to add ivnentory to the initialization of player process:
 
 `main/player.ts`
-```
+```ts
+import { Inventory, Backpack, Equipment } from 'rpgjs-inventory';
+
 const player: RpgPlayerHooks {}
 
 const originalInitializeMethod = RpgPlayer.prototype.initialize;
@@ -38,7 +36,12 @@ RpgPlayer.prototype.initialize = function() {
 export default player
 ```
 
-Then you can use methods to manage inventory:
+Backpack arguments are:
+- id: string - it is id of the backpack to interact with
+- size: string - quantity of slots in the backpack
+
+> ![NOTE]
+> You can add multiple backpacks to the inventory, but it's not well tested yet
 
 ### Add item
 
@@ -55,10 +58,10 @@ player.inventory.addItem({
 
 - Usage
 
-It adds item to the inventory.\
+It adds item to the inventory.
 
 > [!IMPORTANT]
-> Note that you have to also use native `player.addItem` method because this plugin does not overwrite the main items system but it's only next layer on top of it.\
+> Note that you have to also use native `player.addItem` method because this plugin does not overwrite the main items system but it's only next layer on top of it.
 
 Next you can use `player.inventory.addItem` which will take into account stack size.\
 If there are already potions in inventory it will fill already existing stacks and then add the rest to the empty one.
@@ -83,7 +86,7 @@ In case when there is no item in `from` or `to` slot then it does nothing.
 
 - Example
 
-```
+```ts
 const from: Slot = { backpack: 'main', slot: 5 };
 const from: Slot = { backpack: 'main', slot: 25 };
 
@@ -94,7 +97,26 @@ player.inventory.replaceItems(from: Slot, to: Slot);
 
 it stacks two items with the same id in the inventory.
 
+### Move item to empty slot
+
+- Example
+
+```ts
+const from: Slot = { backpack: 'main', slot: 5 };
+const from: Slot = { backpack: 'main', slot: 25 };
+const quantityToMove = 50;
+
+moveItemToEmptySlot(from, to, quantityToMove);
+```
+
+- Usage
+
+It moves an item to the other empty slot in inventory.\
+In case when target slot is not empty then it will trigger an error.
+
 ### Move item
+
+- Example
 
 ```ts
 const from: Slot = { backpack: 'main', slot: 5 };
@@ -105,8 +127,7 @@ player.inventory.moveItem(from, to, quantityToMove);
 
 - Usage:
 
-It moves item from one slot to another.
-
-## License
-
-...
+It is facade of the 3 methods: `replaceItems`, `stackItems` and `moveItemToEmptySlot`.\
+If target slot is empty then it will just move an item.\
+If the first and target slot items are the same (id) then it will stack these items.\
+If the first and target slot items are different then it will replace these items.

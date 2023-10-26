@@ -23,6 +23,7 @@
     "include": [
         "client",
         "server",
+        "index.ts",
         "index.d.ts"
     ]
   }

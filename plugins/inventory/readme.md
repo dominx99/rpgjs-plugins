@@ -2,6 +2,7 @@
     
 ## Description
 It's a plugin of [RPG JS](https://rpgjs.dev/) engine that gives possibility to manage inventory.
+Example implementation: [inventory](https://github.com/dominx99/rpgjs-plugins/blob/master/examples/inventory)
        
 ## Features
 ✅Move, stack, replace item in inventory\
@@ -40,7 +41,7 @@ Backpack arguments are:
 - id: string - it is id of the backpack to interact with
 - size: string - quantity of slots in the backpack
 
-> ![NOTE]
+> [!IMPORTANT]
 > You can add multiple backpacks to the inventory, but it's not well tested yet
 
 ### Add item

@@ -16,7 +16,7 @@
         "@rpgjs/server": "4.0.3",
         "@rpgjs/standalone": "4.0.3",
         "@rpgjs/types": "4.0.3",
-        "rpgjs-inventory": "^1.0.0-rc.4",
+        "rpgjs-inventory": "^1.0.0-rc.8",
         "socket.io-client": "4.7.2",
         "vue-easy-dnd": "^2.1.3"
     },

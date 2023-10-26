@@ -1,5 +1,6 @@
 import { Item } from 'rpgjs-inventory';
 
+/** @ts-ignore */
 @Item({
     id: 'hp-potion-1',
     name: 'Healing Potion',

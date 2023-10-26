@@ -2,11 +2,11 @@
 
 ### Character select
 
-[Documentation](https://github.com/dominx99/rpgjs-plugins/blob/master/character-select/readme.md)
+[Documentation](https://github.com/dominx99/rpgjs-plugins/blob/master/plugins/character-select/readme.md)
 
 ### Inventory
 
-[Documentation](https://github.com/dominx99/rpgjs-plugins/blob/master/inventory/readme.md)
+[Documentation](https://github.com/dominx99/rpgjs-plugins/blob/master/plugins/inventory/readme.md)
 
 ## Credits
 

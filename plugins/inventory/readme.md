@@ -1,7 +1,7 @@
 # RPG JS Plugin
     
 ## Description
-It's a plugin of [RPG JS](https://rpgjs.dev/) engine that gives possibility to manage inventory.
+It's a plugin of [RPG JS](https://rpgjs.dev/) engine that gives possibility to manage inventory.\
 Example implementation: [inventory](https://github.com/dominx99/rpgjs-plugins/blob/master/examples/inventory)
        
 ## Features
@@ -9,7 +9,6 @@ Example implementation: [inventory](https://github.com/dominx99/rpgjs-plugins/bl
 ✅Filling existing stacks while adding to inventory\
 ⬜Configurable max stack size, currently max stack size is hardcoded to 200
 
-https://drive.google.com/file/d//view?usp=drive_link
 [![Watch the video](https://drive.usercontent.google.com/download?id=108blFvSzi4EdfBtx_U8YhiLrY-rCVWr_&export=download)](https://drive.google.com/file/d/1OuJViaDxX8zaeA42fDzVMdVV9ZT9ReWf/view?usp=sharing)
 
 ## Installation

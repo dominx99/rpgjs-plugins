@@ -46,6 +46,22 @@ Backpack arguments are:
 > [!IMPORTANT]
 > You can add multiple backpacks to the inventory, but it's not well tested yet
 
+Next you should use extended decorators which allows to set `icon` for an Item:
+```ts
+import { Item } from 'rpgjs-inventory';
+
+/** @ts-ignore */
+@Item({
+    id: 'hp-potion-1',
+    name: 'Healing Potion',
+    description: 'Gives 100 HP',
+    icon: 'hp-potion-1'
+    /* other params */
+})
+export default class Potion {
+}
+```
+
 ### Add item
 
 - Example

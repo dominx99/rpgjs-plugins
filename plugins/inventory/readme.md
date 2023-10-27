@@ -9,6 +9,9 @@ Example implementation: [inventory](https://github.com/dominx99/rpgjs-plugins/bl
 ✅Filling existing stacks while adding to inventory\
 ⬜Configurable max stack size, currently max stack size is hardcoded to 200
 
+https://drive.google.com/file/d//view?usp=drive_link
+[![Watch the video](https://drive.usercontent.google.com/download?id=108blFvSzi4EdfBtx_U8YhiLrY-rCVWr_&export=download)](https://drive.google.com/file/d/1OuJViaDxX8zaeA42fDzVMdVV9ZT9ReWf/view?usp=sharing)
+
 ## Installation
     
 You can easily install the RPG JS Plugin using npm. Open your terminal and run the following command:
@@ -132,3 +135,24 @@ It is facade of the 3 methods: `replaceItems`, `stackItems` and `moveItemToEmpty
 If target slot is empty then it will just move an item.\
 If the first and target slot items are the same (id) then it will stack these items.\
 If the first and target slot items are different then it will replace these items.
+
+### Move item
+
+- Example
+
+```ts
+const from: Slot = { backpack: 'main', slot: 5 };
+const quantity = 50;
+
+player.inventory.decreaseQuantityOfSlot(slot, quantity): void {
+```
+
+- Usage:
+
+- It decreases item quantity by slot
+- Remember to also decrease item quantity of native inventory system, eg.
+
+```ts
+player.useItem('potion');
+player.inventory.decreaseQuantityOfSlot({ backpack: 'main', slot: 0 }, 1);
+```

@@ -28,6 +28,7 @@ export interface Inventory {
     replaceItems(from: Slot, to: Slot): void;
     moveItemToEmptySlot(from: Slot, to: Slot, quantityToMove?: number): void;
     stackItems(from: Slot, to: Slot): void;
+    decreaseQuantityOfSlot(slot: Slot, quantity: number): void;
 }
 
 export class Inventory {

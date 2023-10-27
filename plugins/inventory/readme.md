@@ -54,7 +54,7 @@ Backpack arguments are:
 player.addItem('potion', 300)
 player.inventory.addItem({
     itemId: 'potion',
-    type: 'weapon',
+    type: 'item',
     nb: 300,
 })
 ```

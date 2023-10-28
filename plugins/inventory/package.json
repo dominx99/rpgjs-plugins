@@ -1,6 +1,6 @@
 {
     "name": "rpgjs-inventory",
-    "version": "1.0.0-rc.10",
+    "version": "1.0.0-rc.11",
     "description": "",
     "main": "index.ts",
     "types": "index.d.ts",

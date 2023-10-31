@@ -1,8 +1,8 @@
 export class BackpackItem {
-    slot: number;
-    itemId: string;
-    type: string;
-    nb: number;
+    readonly slot: number;
+    readonly itemId: string;
+    readonly type: string;
+    readonly nb: number;
 
     constructor({
         slot,

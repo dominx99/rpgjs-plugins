@@ -3,9 +3,9 @@ import { BackpackItems } from "./BackpackItems";
 import { Slot } from "./Inventory";
 
 export class Backpack {
-    id: string;
-    size: number;
-    items: BackpackItems;
+    readonly id: string;
+    readonly size: number;
+    readonly items: Readonly<BackpackItems>;
 
     constructor(id: string, size: number, items?: BackpackItems) {
         this.id = id;
@@ -58,7 +58,10 @@ export class Backpack {
     }
 
     addItem(item: BackpackItem) {
-        this.items.push(item);
+        this.items = new BackpackItems(
+            ...this.items,
+            item
+        );
     }
 
     isInRange(to: number) {

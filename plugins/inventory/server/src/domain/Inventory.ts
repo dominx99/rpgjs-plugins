@@ -357,7 +357,7 @@ export class Inventory {
         return STACK_LIMIT - itemStack.nb;
     }
 
-    getBackpackItem(backapack: string, slot: number): BackpackItem | null {
+    getBackpackItem(backapack: string, slot: number): Readonly<BackpackItem> | null {
         return this.getBackpack(backapack).findBySlot(slot);
     }
 

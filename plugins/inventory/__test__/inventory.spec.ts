@@ -7,6 +7,8 @@ import { Inventory } from '../server/src/domain/Inventory';
 import { Backpack } from '../server/src/domain/Backpack';
 import { item, potion, backpackItem } from './fixtures/item';
 import { _beforeEach } from './beforeEach';
+import { BackpackItems } from '../server/src/domain/BackpackItems';
+import Equipment from '../server/src/domain/Equipment';
 
 /** @ts-ignore */
 @RpgModule<RpgServer>({

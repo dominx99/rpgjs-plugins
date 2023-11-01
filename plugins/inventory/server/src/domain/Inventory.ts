@@ -257,21 +257,6 @@ export class Inventory {
         }).flat();
     }
 
-    findBackpackSlotByItemId(itemId: string): Slot | null {
-        for (const [backpackName, backpack] of Object.entries(this.backpacks)) {
-            for (const item of Object.values(backpack.items)) {
-                if (item.itemId === itemId) {
-                    return {
-                        backpack: backpackName,
-                        slot: item.slot,
-                    };
-                }
-            }
-        }
-
-        return null;
-    }
-
     showFullNotification(player: RpgPlayer) {
         player.showNotification('Your inventory is full');
     }
@@ -307,7 +292,7 @@ export class Inventory {
             return;
         }
 
-        item.nb += count;
+        this.updateQuantityOfSlot(slot, item.nb + count);
     }
 
     updateQuantityOfSlot(slot: Slot, count: number): void {

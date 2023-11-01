@@ -5,7 +5,7 @@ import { Slot } from "./Inventory";
 export class Backpack {
     readonly id: string;
     readonly size: number;
-    readonly items: Readonly<BackpackItems>;
+    items: Readonly<BackpackItems>;
 
     constructor(id: string, size: number, items?: BackpackItems) {
         this.id = id;
@@ -76,6 +76,10 @@ export class Backpack {
             return;
         }
 
-        this.items[index] = backpackItem;
+        this.items = new BackpackItems(
+            ...this.items.slice(0, index),
+            backpackItem,
+            ...this.items.slice(index + 1)
+        );
     }
 }

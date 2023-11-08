@@ -64,6 +64,10 @@ export class Backpack {
         );
     }
 
+    hasItem(itemId: string): boolean {
+        return this.items.some((item) => item.itemId === itemId);
+    }
+
     isInRange(to: number) {
         return to >= 0 && to < this.size;
     }

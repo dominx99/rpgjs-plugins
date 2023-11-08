@@ -25,6 +25,7 @@ export interface Inventory {
     backpacks: Backpack[];
 
     addItem(item: ItemToInventory): AddItemResult;
+    hasItem(itemId: string): boolean;
     replaceItems(from: Slot, to: Slot): void;
     moveItemToEmptySlot(from: Slot, to: Slot, quantityToMove?: number): void;
     stackItems(from: Slot, to: Slot): void;
@@ -362,6 +363,18 @@ export class Inventory {
         }
 
         return backpack;
+    }
+
+    hasItem(itemId: string): boolean {
+        let hasItem = false;
+
+        Object.values(this.backpacks).forEach((backpack) => {
+            if (backpack.hasItem(itemId)) {
+                hasItem = true;
+            }
+        });
+
+        return hasItem;
     }
 
     dump() {

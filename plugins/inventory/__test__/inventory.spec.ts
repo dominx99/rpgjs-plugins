@@ -613,6 +613,18 @@ describe('inventory decrease quantity of slot', () => {
     });
 });
 
+describe('has item', () => {
+    it('returns false if player does not have item', () => {
+        expect(currentPlayer.inventory.hasItem('potion')).toBe(false);
+    });
+
+    it('returns true if player has item', () => {
+        currentPlayer.inventory.addItem(potion({ nb: 5 }));
+
+        expect(currentPlayer.inventory.hasItem('potion')).toBe(true);
+    });
+})
+
 afterEach(() => {
     clear();
 });

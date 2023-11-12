@@ -625,6 +625,52 @@ describe('has item', () => {
     });
 })
 
+describe('remove item by id', () => {
+    it('removes item by id', () => {
+        currentPlayer.inventory.addItem(potion({ nb: 5 }));
+
+        currentPlayer.inventory.removeByItemId('potion', 3);
+
+        expect(currentPlayer.inventory.getBackpack('main').items).toHaveLength(1);
+        expect(currentPlayer.inventory.getBackpackItem('main', 0)?.nb).toBe(2);
+    });
+
+    it('removes item even if not enough', () => {
+        currentPlayer.inventory.addItem(potion({ nb: 5 }));
+
+        currentPlayer.inventory.removeByItemId('potion', 10);
+
+        expect(currentPlayer.inventory.getBackpack('main').items).toHaveLength(0);
+        expect(currentPlayer.inventory.getBackpackItem('main', 0)).toBeNull();
+    });
+
+    it('removes item even if not enough and in multiple slots', () => {
+        currentPlayer.inventory.addBackpackItemToSlot(backpackItem(potion({ nb: 5 }), 0), { backpack: 'main', slot: 0 });
+        currentPlayer.inventory.addBackpackItemToSlot(backpackItem(potion({ nb: 5 }), 0), { backpack: 'main', slot: 1 });
+
+        currentPlayer.inventory.removeByItemId('potion', 10);
+
+        expect(currentPlayer.inventory.getBackpack('main').items).toHaveLength(0);
+        expect(currentPlayer.inventory.getBackpackItem('main', 0)).toBeNull();
+        expect(currentPlayer.inventory.getBackpackItem('main', 1)).toBeNull();
+    });
+
+    it('removes item from multiple slots', () => {
+        currentPlayer.inventory.addBackpackItemToSlot(backpackItem(potion({ nb: 5 }), 0), { backpack: 'main', slot: 0 });
+        currentPlayer.inventory.addBackpackItemToSlot(backpackItem(potion({ nb: 5 }), 1), { backpack: 'main', slot: 1 });
+        currentPlayer.inventory.addBackpackItemToSlot(backpackItem(potion({ nb: 5 }), 2), { backpack: 'main', slot: 2 });
+
+        currentPlayer.inventory.dump();
+        currentPlayer.inventory.removeByItemId('potion', 12);
+
+        currentPlayer.inventory.dump();
+        expect(currentPlayer.inventory.getBackpack('main').items).toHaveLength(1);
+        expect(currentPlayer.inventory.getBackpackItem('main', 0)).toBeNull();
+        expect(currentPlayer.inventory.getBackpackItem('main', 1)).toBeNull();
+        expect(currentPlayer.inventory.getBackpackItem('main', 2)?.nb).toBe(3);
+    });
+});
+
 afterEach(() => {
     clear();
 });

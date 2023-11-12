@@ -30,6 +30,7 @@ export interface Inventory {
     moveItemToEmptySlot(from: Slot, to: Slot, quantityToMove?: number): void;
     stackItems(from: Slot, to: Slot): void;
     decreaseQuantityOfSlot(slot: Slot, quantity: number): void;
+    removeByItemId(itemId: string, nb?: number): void;
 }
 
 export class Inventory {
@@ -375,6 +376,29 @@ export class Inventory {
         });
 
         return hasItem;
+    }
+
+    removeByItemId(itemId: string, nb: number = 1) {
+        let remainsToBeRemovedCount = nb;
+
+        this.findSlotsByItemId(itemId).forEach(slot => {
+            const backpackItem = this.getBackpackItemBySlot(slot);
+
+            if (!backpackItem) {
+                return;
+            }
+
+            if (backpackItem.nb <= remainsToBeRemovedCount) {
+                this.decreaseQuantityOfSlot(slot, backpackItem.nb);
+
+                remainsToBeRemovedCount -= backpackItem.nb;
+
+                return;
+            }
+
+            this.decreaseQuantityOfSlot(slot, remainsToBeRemovedCount);
+            remainsToBeRemovedCount = 0;
+        });
     }
 
     dump() {

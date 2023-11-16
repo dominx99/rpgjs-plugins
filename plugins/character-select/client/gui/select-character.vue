@@ -143,6 +143,7 @@ $character-select-arrow-right-image: url('../assets/gui/arrow-right.png') !defau
         filter: brightness(1.5);
         filter: brightness(0.9);
         transition: filter 0.15s ease-in-out;
+        z-index: 100;
 
         &:hover {
             cursor: pointer;

@@ -14,6 +14,9 @@ const player: RpgPlayerHooks = {
             player.callMainMenu()
         }
     },
+    onEquip(player: RpgPlayer, itemId: string) {
+        console.log('onEquip', itemId)
+    },
     async onJoinMap(player: RpgPlayer) {
         setTimeout(() => {
             player.gui('inventory').open();

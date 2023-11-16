@@ -18,7 +18,7 @@
         "@rpgjs/standalone": "4.0.4",
         "@rpgjs/title-screen": "^4.0.4",
         "@rpgjs/types": "4.0.4",
-        "rpgjs-character-select": "1.1.0-rc.4",
+        "rpgjs-character-select": "1.1.1",
         "socket.io-client": "4.7.2"
     },
     "devDependencies": {

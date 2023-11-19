@@ -15,10 +15,12 @@ import ClassLoader from './src/ClassLoader';
                 return true;
             }
 
+            const { actors, gui } = player.server.globalConfig.characterSelect;
+
             authGui.close();
-            const gui = player.gui('rpg-character-select')
-            gui.on('character-selected', async ({ actorId }: { actorId: string }) => {
-                gui.close();
+            const guiInstance = player.gui(gui || 'rpg-character-select')
+            guiInstance.on('character-selected', async ({ actorId }: { actorId: string }) => {
+                guiInstance.close();
                 const { start } = player.server.globalConfig;
 
                 player.server.module.emit('server.player.onCharacterSelected', [player, actorId], true);
@@ -31,11 +33,9 @@ import ClassLoader from './src/ClassLoader';
                 }
             });
 
-            const { actors } = player.server.globalConfig.characterSelect;
-
             const actorClasses = actors.map((actor: any) => player.databaseById(actor));
 
-            gui.open({
+            guiInstance.open({
                 actors: StartingActors.instantiateActorDecorators(actorClasses),
             });
 

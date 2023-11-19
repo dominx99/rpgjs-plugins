@@ -22,7 +22,9 @@
       "node",
       "vite/client"
     ],
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "jsx": "react-jsx",
+    "allowImportingTsExtensions": true
   },
   "include": [
     ".",

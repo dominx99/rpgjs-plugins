@@ -3,6 +3,9 @@
   "server": {
     "type": "object",
     "properties": {
+      "gui": {
+        "type": "string"
+      },
       "actors": {
         "type": "array",
         "items": {

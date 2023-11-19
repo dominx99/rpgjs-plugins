@@ -32,6 +32,6 @@ export class EquipItem {
         player.inventory.equipment.equip({ id: nativeItem.item.id, type: itemType });
         player.equip(nativeItem.item.id, true);
 
-        player.server.module.emit('server.player.onEquip', [player, nativeItem.item.id]);
+        player.server.module.emit('server.player.onEquip', [player, nativeItem.item.id], true);
     }
 }

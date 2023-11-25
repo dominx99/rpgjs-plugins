@@ -8,6 +8,6 @@ modules = [
 ]
 
 [start]
-    map = 'simplemap'
+    map = './main/maps/simplemap'
     graphic = 'hero'
     hitbox = [16, 16]

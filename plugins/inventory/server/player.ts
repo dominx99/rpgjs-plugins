@@ -5,12 +5,6 @@ import { inventorySchemas, itemSchemas } from "./src/schemas/InventorySchemas";
 import { Utils } from "@rpgjs/common";
 import Equipment from "./src/domain/Equipment";
 
-declare module '@rpgjs/server' {
-    export interface RpgPlayer {
-        inventory: Inventory,
-    }
-}
-
 const player: RpgPlayerHooks = {
     props: {
         items: [{ nb: Number, item: itemSchemas }],

@@ -1,7 +1,7 @@
 import { RpgReactContext } from "@rpgjs/client/react";
 import { useContext, useEffect } from "react";
 
-export default function Inventory() {
+export default function InventoryReact() {
     const { rpgCurrentPlayer } = useContext(RpgReactContext);
 
     useEffect(() => {

@@ -23,6 +23,6 @@ export class UnequipItem {
             nb: 1,
         });
 
-        player.server.module.emit('onUnequip', [player, nativeItem.item.id], true)
+        player.server.module.emit('server.player.onUnequip', [player, nativeItem.item.id], true)
     }
 }

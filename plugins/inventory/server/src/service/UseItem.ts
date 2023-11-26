@@ -3,9 +3,10 @@ import { EquipItem } from "./EquipItem";
 import { NativeItems } from "../utils/NativeItems";
 import { Slot } from "../domain/Inventory";
 import { ConsumeItem } from "./ConsumeItem";
+import { CannotEquipItemError } from "../domain/errors/CannotEquipItemError";
 
 export class UseItem {
-    public static fromInventory(player: RpgPlayer, slot: Slot, itemId: string) {
+    public static async fromInventory(player: RpgPlayer, slot: Slot, itemId: string) {
         const backpackItem = player.inventory.getBackpackItemBySlot(slot);
 
         if (!backpackItem || backpackItem.itemId !== itemId) {
@@ -26,12 +27,12 @@ export class UseItem {
             }
 
             if (nativeInventoryItem.item.equippable) {
-                EquipItem.byPlayer(player, slot);
+                await EquipItem.byPlayer(player, slot);
 
                 return;
             }
         } catch (e: any) {
-            console.log(e);
+            console.error(e);
         }
     }
 }

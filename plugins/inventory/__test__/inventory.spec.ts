@@ -660,10 +660,8 @@ describe('remove item by id', () => {
         currentPlayer.inventory.addBackpackItemToSlot(backpackItem(potion({ nb: 5 }), 1), { backpack: 'main', slot: 1 });
         currentPlayer.inventory.addBackpackItemToSlot(backpackItem(potion({ nb: 5 }), 2), { backpack: 'main', slot: 2 });
 
-        currentPlayer.inventory.dump();
         currentPlayer.inventory.removeByItemId('potion', 12);
 
-        currentPlayer.inventory.dump();
         expect(currentPlayer.inventory.getBackpack('main').items).toHaveLength(1);
         expect(currentPlayer.inventory.getBackpackItem('main', 0)).toBeNull();
         expect(currentPlayer.inventory.getBackpackItem('main', 1)).toBeNull();

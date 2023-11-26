@@ -4,7 +4,7 @@ import player from './player';
 /** @ts-ignore */
 @RpgModule<RpgServer>({
     hooks: {
-        player: ['onEquip', 'onUnequip'],
+        player: ['onEquip', 'canEquip', 'onEquipFailed', 'onUnequip'],
     },
     player
 })

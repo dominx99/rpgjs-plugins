@@ -53,32 +53,32 @@ describe('equipment', () => {
 });
 
 describe('inventory & equipment proxy', () => {
-    it('equip item', () => {
+    it('equip item', async () => {
         currentPlayer.addItem(Sword, 1);
         currentPlayer.inventory.addItem(item({ itemId: 'sword' }));
 
-        EquipItem.byPlayer(currentPlayer, { backpack: 'main', slot: 0 });
+        await EquipItem.byPlayer(currentPlayer, { backpack: 'main', slot: 0 });
 
         expect(currentPlayer.inventory.getBackpackItem('main', 0)).toBeNull();
         expect(currentPlayer.inventory.equipment.items.length).toBe(1);
     });
 
-    it('removes item from inventory after equip', () => {
+    it('removes item from inventory after equip', async () => {
         currentPlayer.addItem(Sword, 1);
         currentPlayer.inventory.addItem(item({ itemId: 'sword' }));
 
-        UseItem.fromInventory(currentPlayer, { backpack: 'main', slot: 0 }, 'sword');
+        await UseItem.fromInventory(currentPlayer, { backpack: 'main', slot: 0 }, 'sword');
 
         const backpackItem = currentPlayer.inventory.getBackpackItem('main', 0) as BackpackItem;
 
         expect(backpackItem).toBeNull();
     });
 
-    it('updates equipped items', () => {
+    it('updates equipped items', async () => {
         currentPlayer.addItem(Sword, 1);
         currentPlayer.inventory.addItem(item({ itemId: 'sword' }));
 
-        UseItem.fromInventory(currentPlayer, { backpack: 'main', slot: 0 }, 'sword');
+        await UseItem.fromInventory(currentPlayer, { backpack: 'main', slot: 0 }, 'sword');
 
         const backpackItem = currentPlayer.inventory.getBackpackItem('main', 0) as BackpackItem;
 
@@ -94,11 +94,11 @@ describe('inventory & equipment proxy', () => {
         expect(nativeItem.item.equipped).toBe(true);
     });
 
-    it('unequip item', () => {
+    it('unequip item', async () => {
         currentPlayer.addItem(Sword, 1);
         currentPlayer.inventory.addItem(item({ itemId: 'sword' }));
 
-        UseItem.fromInventory(currentPlayer, { backpack: 'main', slot: 0 }, 'sword');
+        await UseItem.fromInventory(currentPlayer, { backpack: 'main', slot: 0 }, 'sword');
 
         expect(currentPlayer.inventory.getBackpackItem('main', 0)).toBeNull();
 
@@ -123,19 +123,20 @@ describe('inventory & equipment proxy', () => {
 });
 
 describe('inventory hooks', () => {
-    it('call onEquip and onUnequip hooks', () => {
+    it('call onEquip and onUnequip hooks', async () => {
         currentPlayer.addItem(Sword, 1);
         currentPlayer.inventory.addItem(item({ itemId: 'sword' }));
 
         const spy = vi.spyOn(currentPlayer.server.module, 'emit');
 
-        EquipItem.byPlayer(currentPlayer, { backpack: 'main', slot: 0 });
+        await EquipItem.byPlayer(currentPlayer, { backpack: 'main', slot: 0 });
 
-        expect(spy).toHaveBeenCalledWith('onEquip', [currentPlayer, 'sword']);
+        expect(spy).toHaveBeenCalledWith('server.player.canEquip', [currentPlayer, currentPlayer.items[0]], true);
+        expect(spy).toHaveBeenCalledWith('server.player.onEquip', [currentPlayer, 'sword'], true);
 
         UnequipItem.byPlayer(currentPlayer, ItemType.Weapon);
 
-        expect(spy).toHaveBeenCalledWith('onUnequip', [currentPlayer, 'sword']);
+        expect(spy).toHaveBeenCalledWith('server.player.onUnequip', [currentPlayer, 'sword'], true);
     });
 });
 
